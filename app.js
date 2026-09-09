@@ -4,8 +4,14 @@ const hitCountElement = document.getElementById('hit-count');
 const winMessage = document.getElementById('win-message');
 
 let hitCount = 0;
-// [수정됨] 똥의 목표 완성 갯수를 30개에서 150개 사이로 게임마다 랜덤하게 설정합니다.
-const targetCount = Math.floor(Math.random() * 121) + 30;
+
+// [확실한 수정] 최소값과 최대값을 지정하면 그 사이의 숫자를 정확히 뽑아주는 함수
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// 30개에서 150개 사이의 목표 갯수를 안전하게 설정합니다.
+const targetCount = getRandomInt(20, 60);
 let startTime = Date.now();
 let isGameOver = false;
 let timerFrame;
@@ -108,7 +114,7 @@ function createPoop(e) {
         // HTML을 변경하여 커다란 왕똥 이미지와 새로운 메시지 삽입
         winMessage.innerHTML = `
             <div style="font-size: 100px; margin-bottom: 10px; animation: pop 0.5s ease-out;">💩</div>
-            <div style="margin-bottom: 20px;">와!! 똥을 다쌌다!!</div>
+            <div style="margin-bottom: 20px;">똥다쌌다!</div>
             <button id="restart-btn">다시하기</button>
         `;
         
