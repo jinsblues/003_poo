@@ -1,0 +1,15 @@
+{
+  "name": "Poo",
+  "short_name": "Poo",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f8f9fa",
+  "icons": [
+    {
+        "src" : "poo.png",
+        "sizes" : "535x535",
+        "type" : "image/png"
+    }
+    ]
+}
